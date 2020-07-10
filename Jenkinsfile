@@ -9,9 +9,11 @@ pipeline {
             }
         }
         stage('Build Docker Image') {
+            /*
             when {
                 branch 'master'
             }
+            */
             steps {
                 script {
                     app = docker.build("halflogic/train-schedule")
@@ -22,9 +24,11 @@ pipeline {
             }
         }
         stage('Push Docker Image') {
+            /*
             when {
                 branch 'master'
             }
+            */
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-login') {
